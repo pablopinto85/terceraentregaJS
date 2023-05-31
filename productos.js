@@ -147,7 +147,7 @@ class Joyeria {
       boton.addEventListener("click", () => agregarAlCarrito(joya.id));
     }
   }
-  
+  //mas funciones//
   function agregarAlCarrito(idProducto) {
     const joyaCarrito = carrito.find((elemento) => elemento.id === idProducto);
   
