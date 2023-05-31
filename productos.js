@@ -134,7 +134,7 @@ class Joyeria {
       <div class="card-body">
       <h2 class="card-title">${joya.tipo}</h2>
       <h5 class="card-subtitle mb-2 text-muted">${joya.descripcion}</h5>
-      <p class="card-text">$${joya.precio}</p>
+      <p class="card-text"> CLP $${joya.precio}</p>
     </div>
     <button id="agregar${joya.id}" type="button" class="btn btn-dark">Agregar</button>
   </div>
@@ -206,7 +206,7 @@ class Joyeria {
           <tr>
             <th>Item</th>
             <th>Cantidad</th>
-            <th>Precio</th>
+            <th>Precio (CLP)</th>
             <th>Acción</th>
           </tr>
         </thead>
@@ -227,19 +227,31 @@ class Joyeria {
         <td>${joya.cantidad}</td>
         <td>$${joya.precioTotal}</td>
         <td><button id="eliminar${joya.id}" class="btn btn-dark">Eliminar</button></td>
+        
       `;
   
       bodyTabla.appendChild(datos);
   
       const botonEliminar = document.getElementById(`eliminar${joya.id}`);
       botonEliminar.addEventListener("click", () => eliminarDelCarrito(joya.id));
+      
     }
   
-    const accionesCarrito = document.getElementById("acciones-carrito");
-    accionesCarrito.innerHTML = `
-      <h5>Precio Total: $${precioTotal}</h5>
-      <button id="vaciarCarrito" onclick="eliminarCarrito()" class="btn btn-dark">Vaciar Carrito</button>
-    `;
+      
+    const pagarCarrito = document.getElementById("acciones-carrito");
+    pagarCarrito.innerHTML = `
+    <h5>Precio Total: CLP $${precioTotal}</h5>
+    <button id="vaciarCarrito" onclick="eliminarCarrito()" class="btn btn-dark">Vaciar Carrito</button>
+    <button id="pagarCarrito" onclick="mostrarMensaje()" class="btn btn-dark">Pagar Carrito</button>
+`;
+
+const botonPagarCarrito = document.getElementById("pagarCarrito");
+botonPagarCarrito.addEventListener("click", mostrarMensaje);
+
+function mostrarMensaje() {
+  alert("Gracias por tu compra, serás dirigido al sitio web de pagos");
+}
+
   }
   //busqueda y filtrado
   function filtrarBusqueda(e) {
