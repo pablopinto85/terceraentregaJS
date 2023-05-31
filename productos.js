@@ -1,6 +1,6 @@
 
 
-
+//creacion de constructor
 class Joyeria {
     constructor(joya, cantidad) {
       this.id = joya.id;
@@ -10,12 +10,12 @@ class Joyeria {
       this.precioTotal = joya.precio;
     }
   
-    agregarUnidad() {
+    sumarUnidad() {
       this.cantidad++;
       this.actualizarPrecioTotal();
     }
   
-    quitarUnidad() {
+    restarUnidad() {
       if (this.cantidad > 1) {
         this.cantidad--;
         this.actualizarPrecioTotal();
@@ -123,7 +123,7 @@ class Joyeria {
   function imprimirProductosEnHTML(array) {
     const contenedor = document.getElementById("contenedor");
     contenedor.innerHTML = "";
-  
+  //inyeccion de html mediante JS
     for (const joya of array) {
       const card = document.createElement("div");
       card.innerHTML = `<br>
@@ -153,7 +153,7 @@ class Joyeria {
   
     if (joyaCarrito) {
       const index = carrito.findIndex((elemento) => elemento.id === joyaCarrito.id);
-      carrito[index].agregarUnidad();
+      carrito[index].sumarUnidad();
       carrito[index].actualizarPrecioTotal();
     } else {
       carrito.push(new Joyeria(joyas.find((joya) => joya.id === idProducto), 1));
@@ -168,7 +168,7 @@ class Joyeria {
   
     if (index !== -1) {
       if (carrito[index].cantidad > 1) {
-        carrito[index].quitarUnidad();
+        carrito[index].restarUnidad();
         carrito[index].actualizarPrecioTotal();
       } else {
         carrito.splice(index, 1);
@@ -241,7 +241,7 @@ class Joyeria {
       <button id="vaciarCarrito" onclick="eliminarCarrito()" class="btn btn-dark">Vaciar Carrito</button>
     `;
   }
-  
+  //busqueda y filtrado
   function filtrarBusqueda(e) {
     e.preventDefault();
   
@@ -251,7 +251,7 @@ class Joyeria {
     imprimirProductosEnHTML(arrayFiltrado);
   }
   
-  // --- Eventos ---
+  // Eventos
   const btnFiltrar = document.getElementById("btnFiltrar");
   btnFiltrar.addEventListener("click", filtrarBusqueda);
   
