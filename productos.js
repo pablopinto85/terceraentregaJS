@@ -240,14 +240,6 @@ const botonEliminar = datos.querySelector(`#eliminar${joya.id}`);
 botonEliminar.addEventListener("click", () => eliminarDelCarrito(joya.id));
 }
 
-// Mostrar el modal de SweetAlert
-Swal.fire({
-title: 'Carrito de compras',
-html: tabla.innerHTML,
-icon: 'info',
-confirmButtonText: 'Cerrar'
-});
-
 const botonPagarCarrito = document.getElementById("pagarCarrito");
 botonPagarCarrito.addEventListener("click", mostrarMensaje);
 
