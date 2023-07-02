@@ -212,14 +212,6 @@ tabla.innerHTML = `
 </table>
 `;
 
-// Construir el modal de SweetAlert
-Swal.fire({
-title: 'Carrito de compras',
-html: tabla.innerHTML,
-icon: 'info',
-confirmButtonText: 'Cerrar'
-});
-
 const bodyTabla = tabla.querySelector("#bodyTabla");
 
 for (const joya of array) {
@@ -239,7 +231,13 @@ bodyTabla.appendChild(datos);
 const botonEliminar = datos.querySelector(`#eliminar${joya.id}`);
 botonEliminar.addEventListener("click", () => eliminarDelCarrito(joya.id));
 }
-
+// Construir el modal de SweetAlert
+Swal.fire({
+title: 'Carrito de compras',
+html: tabla.innerHTML,
+icon: 'info',
+confirmButtonText: 'Cerrar'
+});
 const botonPagarCarrito = document.getElementById("pagarCarrito");
 botonPagarCarrito.addEventListener("click", mostrarMensaje);
 
